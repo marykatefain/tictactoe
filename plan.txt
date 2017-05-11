@@ -20,3 +20,13 @@ To do:
 - Make it pretty
 - Deploy (surge?)
 - Write docs
+
+
+Game play:
+
+1. Start with empty board
+2. Player One can add an X anywhere on the board
+3. Player Two can add an O in any empty spot
+4. Repeat until there is a winner (3 in a row) or board is full (9 turns)
+5. Announce winner or tie
+6. Reset board

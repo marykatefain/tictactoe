@@ -16,6 +16,38 @@ function clearBoard(){
   document.getElementById("box9").innerHTML = "";
 };
 
+//Place X in box when one of the divs is clicked, and then call next turn
+function placeX(){
+  document.getElementById("box1").addEventListener("click", function() {
+    this.innerHTML = "<h3>X</h3>";
+  });
+  document.getElementById("box2").addEventListener("click", function() {
+    this.innerHTML = "<h3>X</h3>";
+  });
+  document.getElementById("box3").addEventListener("click", function() {
+    this.innerHTML = "<h3>X</h3>";
+  });
+  document.getElementById("box4").addEventListener("click", function() {
+    this.innerHTML = "<h3>X</h3>";
+  });
+  document.getElementById("box5").addEventListener("click", function() {
+    this.innerHTML = "<h3>X</h3>";
+  });
+  document.getElementById("box6").addEventListener("click", function() {
+    this.innerHTML = "<h3>X</h3>";
+  });
+  document.getElementById("box7").addEventListener("click", function() {
+    this.innerHTML = "<h3>X</h3>";
+  });
+  document.getElementById("box8").addEventListener("click", function() {
+    this.innerHTML = "<h3>X</h3>";
+  });
+  document.getElementById("box9").addEventListener("click", function() {
+    this.innerHTML = "<h3>X</h3>";
+  });
+
+}
+
 
 //Game Play Function Calls
 function play(){
@@ -23,8 +55,7 @@ function play(){
   clearBoard();
 
   //step 2: Player 1 turn 1
-
-
+  placeX();
 
 
 //End Play function
