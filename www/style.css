@@ -4,7 +4,23 @@ h1 {
 }
 
 h2 {
+  text-align: center;
+  margin: 10px;;
+}
+
+h3 {
 font-size: 2em;
+}
+
+.button {
+  text-align: center;
+  border-width: 2px;
+  border-color: black;
+  border-style: solid;
+  width: 200px;
+  height: 50px;
+  margin: 0 auto;
+
 }
 
 .board {
@@ -18,7 +34,7 @@ font-size: 2em;
 table {
   width: 9vw;
   text-align: center;
-  margin-top: 50px;
+  margin-top: 25px;
 }
 
 tr {
@@ -35,4 +51,8 @@ td {
   border-width: 2px;
   border-color: black;
   border-style: solid;
+}
+
+.clear {
+  display: none;
 }
