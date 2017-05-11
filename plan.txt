@@ -1,0 +1,22 @@
+Tic-Tac-Toe
+
+- Two players take turns placing an X or an O on a 3x3 board
+- When one player has three in a row, they win
+- If the board fills up with no three in a row, it is a tie
+
+
+Need to:
+
+- Collect Player 1 and Player 2 names and assign them to either X or O
+- Build a board using CSS and HTML (flex divs with borders?)
+- Use event listeners to figure out if there are 3 X's or O's on the board in a row
+- If no winner declared after 9 turns, announce tie
+- Ask if they want to play again and reset the board
+
+
+To do:
+- Build board
+- Write JS logic
+- Make it pretty
+- Deploy (surge?)
+- Write docs
