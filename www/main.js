@@ -139,9 +139,10 @@ function play(){
 
   //Compare win states to board states
 
-
 //End Play function
 };
+
+//_________________BOARD STATE AND WINNING_______________________
 
 //Returns the board state as an array based on the letter in each square
 function boardState() {
@@ -162,9 +163,17 @@ function boardState() {
   console.log(boardPattern);
   console.log(xWinState1);
 
-  if (JSON.stringify(boardPattern) === JSON.stringify(xWinState1)) {
-    alert("winner!");
+  function isEqual(a, b) {
+    return JSON.stringify(a) === JSON.stringify(b);
   };
+
+  function winner() {
+    if (isEqual(boardPattern, xWinState1)) {
+      alert("Winner!");
+    };
+  };
+
+  winner();
 
 };
 
