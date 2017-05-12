@@ -21,7 +21,7 @@ function clearBoard(){
 //step 3: remove event listeners
 function endClick(id) {
   document.getElementById(id).removeEventListener("click", function() {
-    this.innerHTML = "<h3>X</h3>";
+    writeHTML(id);
   });
 }
 
