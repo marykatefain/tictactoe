@@ -13,6 +13,10 @@ h3 {
 font-size: 2em;
 }
 
+.hidden-text {
+  display: none;
+}
+
 .button {
   text-align: center;
   border-width: 2px;

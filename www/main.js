@@ -6,15 +6,15 @@ var player2 = prompt("Who is Player 2?");*/
 
 //Resets the board to be blank (step 1)
 function clearBoard(){
-  document.getElementById("box0").innerHTML = " ";
-  document.getElementById("box1").innerHTML = " ";
-  document.getElementById("box2").innerHTML = " ";
-  document.getElementById("box3").innerHTML = " ";
-  document.getElementById("box4").innerHTML = " ";
-  document.getElementById("box5").innerHTML = " ";
-  document.getElementById("box6").innerHTML = " ";
-  document.getElementById("box7").innerHTML = " ";
-  document.getElementById("box8").innerHTML = " ";
+  document.getElementById("box0").innerHTML = "<h3 class='hidden-text'>b</h3>";
+  document.getElementById("box1").innerHTML = "<h3 class='hidden-text'>b</h3>";
+  document.getElementById("box2").innerHTML = "<h3 class='hidden-text'>b</h3>";
+  document.getElementById("box3").innerHTML = "<h3 class='hidden-text'>b</h3>";
+  document.getElementById("box4").innerHTML = "<h3 class='hidden-text'>b</h3>";
+  document.getElementById("box5").innerHTML = "<h3 class='hidden-text'>b</h3>";
+  document.getElementById("box6").innerHTML = "<h3 class='hidden-text'>b</h3>";
+  document.getElementById("box7").innerHTML = "<h3 class='hidden-text'>b</h3>";
+  document.getElementById("box8").innerHTML = "<h3 class='hidden-text'>b</h3>";
 };
 
 //_________MAKE X SQUARE_______________________________
@@ -143,21 +143,18 @@ function play(){
 
 function boardState() {
   var myList = document.querySelectorAll("h3");
-  console.log(myList);
 
-  var contentList = function() {
-    myList[0].innerHTML; 
-    myList[1].innerHTML;
-    myList[2].innerHTML;
-    myList[3].innerHTML;
-    myList[4].innerHTML;
-    myList[5].innerHTML;
-    myList[6].innerHTML;
-    myList[7].innerHTML;
-    myList[8].innerHTML;
-  };
-  console.log(contentList);
+  var square0 = myList[0].innerHTML;
+  var square1 = myList[1].innerHTML;
+  var square2 = myList[2].innerHTML;
+  var square3 = myList[3].innerHTML;
+  var square4 = myList[4].innerHTML;
+  var square5 = myList[5].innerHTML;
+  var square6 = myList[6].innerHTML;
+  var square7 = myList[7].innerHTML;
+  var square8 = myList[8].innerHTML;
 
+  console.log(square0, square1, square2, square3, square4, square5, square6, square7, square8);
 };
 
 /*function clearBoard () {
