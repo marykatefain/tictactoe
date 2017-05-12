@@ -160,6 +160,11 @@ function boardState() {
  var boardPattern =[square0, square1, square2, square3, square4, square5, square6, square7, square8]
 
   console.log(boardPattern);
+  console.log(xWinState1);
+
+  if (JSON.stringify(boardPattern) === JSON.stringify(xWinState1)) {
+    alert("winner!");
+  };
 
 };
 
