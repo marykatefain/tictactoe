@@ -132,10 +132,12 @@ function play(){
   //step 1: clear the board
   clearBoard();
 
-  //step 2: Players alternatively click
+  //step 2:
+  //Players alternatively click, event listeners turn on and off
+  //board state checked after each turn
   placeX();
 
-  //Get board state
+  //Compare win states to board states
 
 
 //End Play function
@@ -160,6 +162,31 @@ function boardState() {
   console.log(boardPattern);
 
 };
+
+//____X WIN STATES ________
+
+var xWinState1 = ["X", "X", "X", "b", "b", "b", "b", "b", "b"];
+var xWinState2 = ["b", "b", "b", "X", "X", "X", "b", "b", "b"];
+var xWinState3 = ["b", "b", "b", "b", "b", "b", "X", "X", "X"];
+var xWinState4 = ["X", "b", "b", "X", "b", "b", "X", "b", "b"];
+var xWinState5 = ["b", "X", "b", "b", "X", "b", "b", "X", "b"];
+var xWinState6 = ["b", "b", "X", "b", "b", "X", "b", "b", "X"];
+var xWinState7 = ["X", "b", "b", "b", "X", "b", "b", "b", "X"];
+var xWinState8 = ["b", "b", "X", "b", "X", "b", "X", "b", "b"];
+
+//____O WIN STATES ________
+
+var oWinState1 = ["O", "O", "O", "b", "b", "b", "b", "b", "b"];
+var oWinState2 = ["b", "b", "b", "O", "O", "O", "b", "b", "b"];
+var oWinState3 = ["b", "b", "b", "b", "b", "b", "O", "O", "O"];
+var oWinState4 = ["O", "b", "b", "O", "b", "b", "O", "b", "b"];
+var oWinState5 = ["b", "O", "b", "b", "O", "b", "b", "O", "b"];
+var oWinState6 = ["b", "b", "O", "b", "b", "O", "b", "b", "O"];
+var oWinState7 = ["O", "b", "b", "b", "O", "b", "b", "b", "O"];
+var oWinState8 = ["b", "b", "O", "b", "O", "b", "O", "b", "b"];
+
+
+
 
 /*function clearBoard () {
   alert("test");
