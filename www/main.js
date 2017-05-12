@@ -17,71 +17,45 @@ function clearBoard(){
 };
 
 
+
 //step 3: remove event listeners
-function endTurn() {
-  document.getElementById("box1").removeEventListener("click", function() {
-    this.innerHTML = "<h3>X</h3>";
-  });
-  document.getElementById("box2").removeEventListener("click", function() {
-    this.innerHTML = "<h3>X</h3>";
-  });
-  document.getElementById("box3").removeEventListener("click", function() {
-    this.innerHTML = "<h3>X</h3>";
-  });
-  document.getElementById("box4").removeEventListener("click", function() {
-    this.innerHTML = "<h3>X</h3>";
-  });
-  document.getElementById("box5").removeEventListener("click", function() {
-    this.innerHTML = "<h3>X</h3>";
-  });
-  document.getElementById("box6").removeEventListener("click", function() {
-    this.innerHTML = "<h3>X</h3>";
-  });
-  document.getElementById("box7").removeEventListener("click", function() {
-    this.innerHTML = "<h3>X</h3>";
-  });
-  document.getElementById("box8").removeEventListener("click", function() {
-    this.innerHTML = "<h3>X</h3>";
-  });
-  document.getElementById("box9").removeEventListener("click", function() {
+function endClick(id) {
+  document.getElementById(id).removeEventListener("click", function() {
     this.innerHTML = "<h3>X</h3>";
   });
 }
+
+function endTurn(){
+  endClick("box1");
+  endClick("box2");
+  endClick("box3");
+  endClick("box4");
+  endClick("box5");
+  endClick("box6");
+  endClick("box7");
+  endClick("box8");
+  endClick("box9");
+};
 
 
 //step 2: Place X in box when one of the divs is clicked, and then call next turn
+function writeX(id) {
+  document.getElementById(id).addEventListener("click", function() {
+    this.innerHTML = "<h3>X</h3>";
+  });
+};
+
 function placeX(){
-  document.getElementById("box1").addEventListener("click", function() {
-    this.innerHTML = "<h3>X</h3>";
-  });
-
-  document.getElementById("box1").addEventListener("click", endTurn());
-
-  document.getElementById("box2").addEventListener("click", function() {
-    this.innerHTML = "<h3>X</h3>";
-  });
-  document.getElementById("box3").addEventListener("click", function() {
-    this.innerHTML = "<h3>X</h3>";
-  });
-  document.getElementById("box4").addEventListener("click", function() {
-    this.innerHTML = "<h3>X</h3>";
-  });
-  document.getElementById("box5").addEventListener("click", function() {
-    this.innerHTML = "<h3>X</h3>";
-  });
-  document.getElementById("box6").addEventListener("click", function() {
-    this.innerHTML = "<h3>X</h3>";
-  });
-  document.getElementById("box7").addEventListener("click", function() {
-    this.innerHTML = "<h3>X</h3>";
-  });
-  document.getElementById("box8").addEventListener("click", function() {
-    this.innerHTML = "<h3>X</h3>";
-  });
-  document.getElementById("box9").addEventListener("click", function() {
-    this.innerHTML = "<h3>X</h3>";
-  });
-}
+  writeX("box1");
+  writeX("box2");
+  writeX("box3");
+  writeX("box4");
+  writeX("box5");
+  writeX("box6");
+  writeX("box7");
+  writeX("box8");
+  writeX("box9");
+};
 
 
 //Game Play Function Calls
