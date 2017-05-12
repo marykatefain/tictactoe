@@ -39,9 +39,13 @@ function endTurn(){
 
 
 //step 2: Place X in box when one of the divs is clicked, and then call next turn
+function writeHTML (id){
+  document.getElementById(id).innerHTML = "<h3>X</h3>";
+}
+
 function writeX(id) {
   document.getElementById(id).addEventListener("click", function() {
-    this.innerHTML = "<h3>X</h3>";
+      writeHTML(id);
   });
 };
 
