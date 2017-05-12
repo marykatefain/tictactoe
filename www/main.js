@@ -83,6 +83,7 @@ function myNamedFunctionO() {
     var id = this.getAttribute("id");
     writeHTMLO(id);
     endTurnO();
+    placeX();
     console.log("test writeO");
 }
 
