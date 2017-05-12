@@ -141,6 +141,7 @@ function play(){
 //End Play function
 };
 
+//Returns the board state as an array based on the letter in each square
 function boardState() {
   var myList = document.querySelectorAll("h3");
 
@@ -154,7 +155,10 @@ function boardState() {
   var square7 = myList[7].innerHTML;
   var square8 = myList[8].innerHTML;
 
-  console.log(square0, square1, square2, square3, square4, square5, square6, square7, square8);
+ var boardPattern =[square0, square1, square2, square3, square4, square5, square6, square7, square8]
+
+  console.log(boardPattern);
+
 };
 
 /*function clearBoard () {
