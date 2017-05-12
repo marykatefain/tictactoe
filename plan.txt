@@ -22,6 +22,10 @@ To do:
 - Write docs
 
 
+clean up:
+- loops for repeat offenders
+- set var for turn, change var instead of calling PlaceO or placeX
+
 Game play:
 
 1. Start with empty board
