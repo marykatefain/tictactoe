@@ -69,6 +69,13 @@ function placeX(){
   writeX("box8");
 };
 
+//_________PLAYER TURN SWITCH____________________________
+
+function player1Turn() {
+  var player1 = document.querySelector("#player1");
+  player1.classList.toggle("active");
+};
+
 //_________MAKE X SQUARE_______________________________
 
 //Writes an O
@@ -135,6 +142,8 @@ function play(){
   //step 2:
   //Players alternatively click, event listeners turn on and off
   //board state checked after each turn
+  player1Turn();
+
   placeX();
 
   //Compare win states to board states
