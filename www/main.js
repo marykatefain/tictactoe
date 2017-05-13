@@ -159,12 +159,9 @@ function play(){
 
   //step 2:
   //Players alternatively click, event listeners turn on and off
-  //board state checked after each turn
+  //board state checked after each turn for winner
   placeX();
 
-  //Compare win states to board states
-
-//End Play function
 };
 
 //_________________BOARD STATE AND WINNING_______________________
@@ -189,20 +186,47 @@ function boardState() {
   console.log(xWinState1);
 
 
-  function isEqual(win, board) {
+  function XisEqual(win, board) {
     for (var i=0; i<9; i++) {
       if (win[i] == 'b') continue;
       if (win[i] != board[i]) {
         return false;
       };
     };
+    alert("X Wins!");
   };
 
-  function winner() {
-    if (isEqual(xWinState1, boardPattern) == true) alert("Winner!");
-  };
 
-  winner();
+  XisEqual(xWinState1, boardPattern);
+  XisEqual(xWinState2, boardPattern);
+  XisEqual(xWinState3, boardPattern);
+  XisEqual(xWinState4, boardPattern);
+  XisEqual(xWinState5, boardPattern);
+  XisEqual(xWinState6, boardPattern);
+  XisEqual(xWinState7, boardPattern);
+  XisEqual(xWinState8, boardPattern);
+
+
+
+function OisEqual(win, board) {
+  for (var i=0; i<9; i++) {
+    if (win[i] == 'b') continue;
+    if (win[i] != board[i]) {
+      return false;
+    };
+  };
+  alert("O Wins!");
+};
+
+
+  OisEqual(oWinState1, boardPattern);
+  OisEqual(oWinState2, boardPattern);
+  OisEqual(oWinState3, boardPattern);
+  OisEqual(oWinState4, boardPattern);
+  OisEqual(oWinState5, boardPattern);
+  OisEqual(oWinState6, boardPattern);
+  OisEqual(oWinState7, boardPattern);
+  OisEqual(oWinState8, boardPattern);
 
 };
 
