@@ -1,36 +1,31 @@
-Tic-Tac-Toe
+Code issues:
 
-- Two players take turns placing an X or an O on a 3x3 board
-- When one player has three in a row, they win
-- If the board fills up with no three in a row, it is a tie
+  1. Loops:
+    - clearBoard()
+    - endTurnX()
+    - placeX()
+    - endTurnO()
+    - placeO()
+    - boardState() :
+        a. var square[i]
+        b. XisEqual() calls
+        c. OisEqual() calls
+
+  2. Assign var to X and O and have it switch on and off
+
+  3. Stylize alert boxes (or have div show?)
+
+  4. Fix when someone wins twice
+
+  5. Prevent click to change current piece on board
+
+  7. Have win alert come after placement of piece
 
 
-Need to:
+Other To Do:
 
-- Collect Player 1 and Player 2 names and assign them to either X or O
-- Build a board using CSS and HTML (flex divs with borders?)
-- Use event listeners to figure out if there are 3 X's or O's on the board in a row
-- If no winner declared after 9 turns, announce tie
-- Ask if they want to play again and reset the board
+  1. Project Docs
 
+  2. Deploy on surge
 
-To do:
-- Build board
-- Write JS logic
-- Make it pretty
-- Deploy (surge?)
-- Write docs
-
-
-clean up:
-- loops for repeat offenders
-- set var for turn, change var instead of calling PlaceO or placeX
-
-Game play:
-
-1. Start with empty board
-2. Player One can add an X anywhere on the board
-3. Player Two can add an O in any empty spot
-4. Repeat until there is a winner (3 in a row) or board is full (9 turns)
-5. Announce winner or tie
-6. Reset board
+  3. Push to GH
