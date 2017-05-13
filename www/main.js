@@ -1,10 +1,10 @@
 
+/* IF YOU HAVE TIME: MAKE PLAYER NAMES:
+var player1 = prompt("Who is Player 1?");
+var player2 = prompt("Who is Player 2?");
+*/
 
-/*var player1 = prompt("Who is Player 1?");
-
-var player2 = prompt("Who is Player 2?");*/
-
-//Resets the board to be blank (step 1)
+//Resets the board to be blank 
 function clearBoard(){
   document.getElementById("box0").innerHTML = "<h3 class='hidden-text'>b</h3>";
   document.getElementById("box1").innerHTML = "<h3 class='hidden-text'>b</h3>";
@@ -17,7 +17,7 @@ function clearBoard(){
   document.getElementById("box8").innerHTML = "<h3 class='hidden-text'>b</h3>";
 };
 
-//_________PLAYER TURN SWITCH____________________________
+//______PLAYER TURN SWITCH AND CLEARING PLAYERS____________________
 
 function player1Turn() {
   var player1 = document.querySelector("#player1");
@@ -38,7 +38,7 @@ function clearPlayer() {
 };
 
 
-//_________MAKE X SQUARE_______________________________
+//_________MAKE X SQUARE ON CLICK_______________________________
 
 //Writes an X
 function writeHTMLX (id){
@@ -94,7 +94,7 @@ function placeX(){
 
 
 
-//_________MAKE X SQUARE_______________________________
+//_________MAKE O SQUARE ON CLICK_______________________________
 
 //Writes an O
 function writeHTMLO (id){
@@ -149,25 +149,12 @@ function placeO(){
 };
 
 
-//_____________GAME PLAY_______________________
-function play(){
-
-  //step 1: clear the board, any active play turn, and start player turn toggle
-  clearBoard();
-  clearPlayer();
-  player1Turn();
-
-  //step 2:
-  //Players alternatively click, event listeners turn on and off
-  //board state checked after each turn for winner
-  placeX();
-
-};
-
 //_________________BOARD STATE AND WINNING_______________________
 
-//Returns the board state as an array based on the letter in each square
+//Returns the board state as an array based on the letter in each square, and checks against X and O win states after each turn
 function boardState() {
+
+  //Pulls inner HTML of each box and puts them into an array
   var myList = document.querySelectorAll("h3");
 
   var square0 = myList[0].innerHTML;
@@ -185,7 +172,7 @@ function boardState() {
   console.log(boardPattern);
   console.log(xWinState1);
 
-
+  //Checks if X board patterns are equal to any X win states, by looping through win state array and skipping blank squares and only comparing X squares
   function XisEqual(win, board) {
     for (var i=0; i<9; i++) {
       if (win[i] == 'b') continue;
@@ -196,7 +183,7 @@ function boardState() {
     alert("X Wins!");
   };
 
-
+  //Call win check on each X win state
   XisEqual(xWinState1, boardPattern);
   XisEqual(xWinState2, boardPattern);
   XisEqual(xWinState3, boardPattern);
@@ -206,8 +193,7 @@ function boardState() {
   XisEqual(xWinState7, boardPattern);
   XisEqual(xWinState8, boardPattern);
 
-
-
+  //Checks if O board patterns are equal to any O win states, by looping through win state array and skipping blank squares and only comparing O squares
 function OisEqual(win, board) {
   for (var i=0; i<9; i++) {
     if (win[i] == 'b') continue;
@@ -218,7 +204,7 @@ function OisEqual(win, board) {
   alert("O Wins!");
 };
 
-
+//Call win check on each O win state
   OisEqual(oWinState1, boardPattern);
   OisEqual(oWinState2, boardPattern);
   OisEqual(oWinState3, boardPattern);
@@ -228,7 +214,8 @@ function OisEqual(win, board) {
   OisEqual(oWinState7, boardPattern);
   OisEqual(oWinState8, boardPattern);
 
-};
+}; //End boardState()
+
 
 //____X WIN STATES ________
 
@@ -258,8 +245,15 @@ var oWinState7 = ["O", "b", "b", "b", "O", "b", "b", "b", "O"];
 var oWinState8 = ["b", "b", "O", "b", "O", "b", "O", "b", "b"];
 
 
+//_____________GAME PLAY_______________________
+function play(){
 
+  //Clear the board, any active player turn, and start player turn toggle
+  clearBoard();
+  clearPlayer();
+  player1Turn();
 
-/*function clearBoard () {
-  alert("test");
-}*/
+  //Players alternatively click, event listeners turn on and off allow placement of X or O
+  //board state checked after each turn for winner
+  placeX();
+};
