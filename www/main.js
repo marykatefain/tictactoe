@@ -4,7 +4,7 @@ var player1 = prompt("Who is Player 1?");
 var player2 = prompt("Who is Player 2?");
 */
 
-//Resets the board to be blank 
+//Resets the board to be blank
 function clearBoard(){
   document.getElementById("box0").innerHTML = "<h3 class='hidden-text'>b</h3>";
   document.getElementById("box1").innerHTML = "<h3 class='hidden-text'>b</h3>";
@@ -74,8 +74,7 @@ function endTurnX(){
 };
 
 
-//sPlace X in box when one of the divs is clicked, and then call next turn
-
+//Place X in box when one of the divs is clicked, and then call next turn
 function writeX(id) {
   document.getElementById(id).addEventListener("click", myNamedFunctionX);
 };
@@ -131,7 +130,6 @@ function endTurnO(){
 
 
 //Place O in box when one of the divs is clicked, and then end turn
-
 function writeO(id) {
   document.getElementById(id).addEventListener("click", myNamedFunctionO);
 };
@@ -193,7 +191,7 @@ function boardState() {
   XisEqual(xWinState7, boardPattern);
   XisEqual(xWinState8, boardPattern);
 
-  //Checks if O board patterns are equal to any O win states, by looping through win state array and skipping blank squares and only comparing O squares
+//Checks if O board patterns are equal to any O win states, by looping through win state array and skipping blank squares and only comparing O squares
 function OisEqual(win, board) {
   for (var i=0; i<9; i++) {
     if (win[i] == 'b') continue;
