@@ -51,10 +51,19 @@ h6 {
   font-size: 1.35em;
   text-align: center;
   margin: 10px auto;
+  display: none;
 }
 
 div.player {
   margin: 50px auto;
+}
+
+div.player.active {
+  color: #FFA07A;
+}
+
+.minor {
+  font-size: 1em;
 }
 
 p {
@@ -153,4 +162,12 @@ td {
 
 .clear {
   display: none;
+}
+
+footer {
+  font-size: .65em;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  text-align: center;
 }
