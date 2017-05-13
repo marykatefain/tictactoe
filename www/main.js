@@ -29,6 +29,8 @@ function myNamedFunctionX() {
     var id = this.getAttribute("id");
     writeHTMLX(id);
     endTurnX();
+    player1Turn();
+    player2Turn();
     placeO();
     boardState();
 }
@@ -76,6 +78,11 @@ function player1Turn() {
   player1.classList.toggle("active");
 };
 
+function player2Turn() {
+  var player1 = document.querySelector("#player2");
+  player1.classList.toggle("active");
+};
+
 //_________MAKE X SQUARE_______________________________
 
 //Writes an O
@@ -88,6 +95,8 @@ function myNamedFunctionO() {
     var id = this.getAttribute("id");
     writeHTMLO(id);
     endTurnO();
+    player1Turn();
+    player2Turn();
     placeX();
     boardState();
 }
