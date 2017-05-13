@@ -83,6 +83,14 @@ function player2Turn() {
   player1.classList.toggle("active");
 };
 
+function clearPlayer() {
+  var player1 = document.querySelector("#player1");
+  player1.classList.remove("active");
+
+  var player1 = document.querySelector("#player2");
+  player1.classList.remove("active");
+};
+
 //_________MAKE X SQUARE_______________________________
 
 //Writes an O
@@ -145,13 +153,14 @@ function placeO(){
 //_____________GAME PLAY_______________________
 function play(){
 
-  //step 1: clear the board
+  //step 1: clear the board, any active play turn, and start player turn toggle
   clearBoard();
+  clearPlayer();
+  player1Turn();
 
   //step 2:
   //Players alternatively click, event listeners turn on and off
   //board state checked after each turn
-  player1Turn();
 
   placeX();
 
