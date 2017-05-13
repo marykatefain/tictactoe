@@ -163,14 +163,18 @@ function boardState() {
   console.log(boardPattern);
   console.log(xWinState1);
 
-  function isEqual(a, b) {
-    return JSON.stringify(a) === JSON.stringify(b);
+
+  function isEqual(win, board) {
+    for (var i=0; i<9; i++) {
+      if (win[i] == 'b') continue;
+      if (win[i] != board[i]) {
+        return false;
+      };
+    };
   };
 
   function winner() {
-    if (isEqual(boardPattern, xWinState1)) {
-      alert("Winner!");
-    };
+    if (isEqual(xWinState1, boardPattern) == true) alert("Winner!");
   };
 
   winner();
@@ -178,6 +182,8 @@ function boardState() {
 };
 
 //____X WIN STATES ________
+
+var xWinStates = [xWinState1, xWinState2, xWinState3, xWinState4, xWinState5, xWinState6, xWinState7, xWinState8];
 
 var xWinState1 = ["X", "X", "X", "b", "b", "b", "b", "b", "b"];
 var xWinState2 = ["b", "b", "b", "X", "X", "X", "b", "b", "b"];
@@ -189,6 +195,9 @@ var xWinState7 = ["X", "b", "b", "b", "X", "b", "b", "b", "X"];
 var xWinState8 = ["b", "b", "X", "b", "X", "b", "X", "b", "b"];
 
 //____O WIN STATES ________
+
+var oWinStates = [oWinState1, oWinState2, oWinState3, oWinState4, oWinState5, oWinState6, oWinState7, oWinState8];
+
 
 var oWinState1 = ["O", "O", "O", "b", "b", "b", "b", "b", "b"];
 var oWinState2 = ["b", "b", "b", "O", "O", "O", "b", "b", "b"];

@@ -1,7 +1,26 @@
+
+
+html {
+  height: 100%;
+}
+
+body {
+  color: #ffffff;
+  background-color:#2b3238;
+  background: radial-gradient(#2b3238, #0a0b0d);
+  background-size: cover;
+  background-position: center;
+  height:100%;
+  margin: 0px 0px 0px 0px;
+  font-family: 'Love Ya Like A Sister', cursive;
+}
+
 h1 {
   text-align: center;
   font-size: 5em;
-  margin: 20px auto;
+  margin: 0px auto;
+  padding: 20px;
+  font-family: 'Cabin Sketch', cursive;
 }
 
 h2 {
@@ -10,7 +29,8 @@ h2 {
 }
 
 h3 {
-font-size: 2em;
+font-size: 5em;
+margin: 0px auto;
 }
 
 .hidden-text {
@@ -19,8 +39,8 @@ font-size: 2em;
 
 .button {
   text-align: center;
-  border-width: 2px;
-  border-color: black;
+  border-width: 4px;
+  border-color: white;
   border-style: solid;
   width: 200px;
   height: 50px;
@@ -40,22 +60,24 @@ table {
   width: 9vw;
   text-align: center;
   margin-top: 25px;
+  border-spacing: 0px;
+  border-collapse: collapse;
 }
 
 tr {
 }
 
 td {
+  border-width: 5px;
+  border-color: white;
+  border-style: solid;
 }
 
 .box {
   width: 100px;
   height: 100px;
-  margin: 0;
+  margin: auto;
   text-align: center;
-  border-width: 2px;
-  border-color: black;
-  border-style: solid;
 }
 
 .clear {
