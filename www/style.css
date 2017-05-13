@@ -28,9 +28,58 @@ h2 {
   margin: 10px;;
 }
 
+h2.subtitle {
+  font-family: 'Short Stack', cursive;
+  font-size: 1.45em;
+  margin-top: -20px;
+}
+
 h3 {
 font-size: 5em;
 margin: 0px auto;
+}
+
+h5 {
+  font-family: 'Short Stack', cursive;
+  font-size: 1.75em;
+  text-align: center;
+  margin: 10px auto;
+}
+
+h6 {
+  font-family: 'Short Stack', cursive;
+  font-size: 1.35em;
+  text-align: center;
+  margin: 10px auto;
+}
+
+div.player {
+  margin: 50px auto;
+}
+
+p {
+  font-family: 'Short Stack', cursive;
+  font-size: 1.15em;
+  text-align: center;
+}
+
+div.instructions {
+  padding-top: 20px;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  margin: auto 20px;
+}
+
+.flex-column {
+  width: 30%;
+  padding: 10px;
+  margin: 10px;
 }
 
 .hidden-text {
@@ -44,8 +93,14 @@ margin: 0px auto;
   border-style: solid;
   width: 200px;
   height: 50px;
-  margin: 0 auto;
+  margin: 40px auto;
+  margin-bottom: 0px;
+}
 
+.button:hover {
+  cursor: pointer;
+  border-color: #FFA07A;
+  color: #FFA07A;
 }
 
 .board {
@@ -59,7 +114,7 @@ margin: 0px auto;
 table {
   width: 9vw;
   text-align: center;
-  margin-top: 25px;
+  margin-top: 35px;
   border-spacing: 0px;
   border-collapse: collapse;
 }
@@ -78,6 +133,22 @@ td {
   height: 100px;
   margin: auto;
   text-align: center;
+}
+
+.no-top {
+  border-top-style: none;
+}
+
+.no-bottom {
+  border-bottom-style: none;
+}
+
+.no-right {
+  border-right-style: none;
+}
+
+.no-left {
+  border-left-style: none;
 }
 
 .clear {

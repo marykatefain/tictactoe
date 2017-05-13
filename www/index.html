@@ -22,87 +22,120 @@
   <link rel="stylesheet" href="./style.css">
   <link href="https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css?family=Short+Stack" rel="stylesheet">
 
 </head>
 
 <body>
   <h1>Tic-Tac-Toe</h1>
-  <div class="button" id="play" onclick="play();">
-    <h2>Play!</h3>
-  </div>
-  <div class="board">
-    <table>
-      <tr>
 
-        <td>
-          <div class="box" id="box0">
-            <h3>-</h3>
-          </div>
-        </td>
+  <h2 class="subtitle">The classic two-player game.</h2>
 
-        <td>
-          <div class="box" id="box1">
-            <h3>-</h3>
-          </div>
-        </td>
+  <div class="flex-container">
 
-        <td>
-          <div class="box" id="box2">
-            <h3>-</h3>
-          </div>
-        </td>
+    <div class="flex-column">
+      <div class="instructions">
+        <p class="instructions">Each player alternates turns placing thier pieces on the board.</p>
+        <p class="instructions">First player to reach three-in-a-row across, down, or diagonally wins!</p>
+      </div>
 
-      </tr>
 
-      <tr>
+      <div class="button" id="play" onclick="play();">
+        <h2>Play!</h3>
+        </div>
+      </div>
 
-        <td>
-          <div class="box" id="box3">
-            <h3>-</h3>
-          </div>
-        </td>
+      <div class="flex-column">
+        <div class="board">
+          <table>
+            <tr>
 
-        <td>
-          <div class="box" id="box4">
-            <h3>-</h3>
-          </div>
-        </td>
+              <td class="no-top no-left">
+                <div class="box" id="box0">
+                  <h3>-</h3>
+                </div>
+              </td>
 
-        <td>
-          <div class="box" id="box5">
-            <h3>-</h3>
-          </div>
-        </td>
+              <td class="no-top">
+                <div class="box" id="box1">
+                  <h3>-</h3>
+                </div>
+              </td>
 
-      </tr>
+              <td class="no-top no-right">
+                <div class="box" id="box2">
+                  <h3>-</h3>
+                </div>
+              </td>
 
-      <tr>
+            </tr>
 
-        <td>
-          <div class="box" id="box6">
-            <h3>-</h3>
-          </div>
-        </td>
+            <tr>
 
-        <td>
-          <div class="box" id="box7">
-            <h3>-</h3>
-          </div>
-        </td>
+              <td class="no-left">
+                <div class="box" id="box3">
+                  <h3>-</h3>
+                </div>
+              </td>
 
-        <td>
-          <div class="box" id="box8">
-            <h3>-</h3>
-          </div>
-        </td>
+              <td>
+                <div class="box" id="box4">
+                  <h3>-</h3>
+                </div>
+              </td>
 
-      </tr>
+              <td class="no-right">
+                <div class="box" id="box5">
+                  <h3>-</h3>
+                </div>
+              </td>
 
-    </table>
-  </div>
-</body>
+            </tr>
 
-<script src="./main.js"></script>
+            <tr>
 
-</html>
+              <td class="no-left no-bottom">
+                <div class="box" id="box6">
+                  <h3>-</h3>
+                </div>
+              </td>
+
+              <td class="no-bottom">
+                <div class="box" id="box7">
+                  <h3>-</h3>
+                </div>
+              </td>
+
+              <td class="no-right no-bottom">
+                <div class="box" id="box8">
+                  <h3>-</h3>
+                </div>
+              </td>
+
+            </tr>
+
+          </table>
+        </div>
+      </div>
+
+      <div class="flex-column">
+
+        <div class="player">
+          <h5>Player 1 (Xs):</h5>
+          <h6 id="player1">Name</h6>
+        </div>
+
+        <div class="player">
+          <h5>Player 2 (Os):</h5>
+          <h6 id="player2">Name</h6>
+        </div>
+
+      </div>
+
+    </div>
+
+  </body>
+
+  <script src="./main.js"></script>
+
+  </html>
