@@ -1,12 +1,12 @@
 Code issues:
 
   1. Loops:
-    - clearBoard()
-    - endTurnX()
-    - placeX()
-    - endTurnO()
-    - placeO()
-    - boardState() :
+    - [x] clearBoard()
+    - [ ] endTurnX()
+    - [ ] placeX()
+    - [ ] endTurnO()
+    - [ ] placeO()
+    - [ ] boardState() :
         a. var square[i]
         b. XisEqual() calls
         c. OisEqual() calls

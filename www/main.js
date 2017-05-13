@@ -4,18 +4,14 @@ var player1 = prompt("Who is Player 1?");
 var player2 = prompt("Who is Player 2?");
 */
 
-//Resets the board to be blank
-function clearBoard(){
-  document.getElementById("box0").innerHTML = "<h3 class='hidden-text'>b</h3>";
-  document.getElementById("box1").innerHTML = "<h3 class='hidden-text'>b</h3>";
-  document.getElementById("box2").innerHTML = "<h3 class='hidden-text'>b</h3>";
-  document.getElementById("box3").innerHTML = "<h3 class='hidden-text'>b</h3>";
-  document.getElementById("box4").innerHTML = "<h3 class='hidden-text'>b</h3>";
-  document.getElementById("box5").innerHTML = "<h3 class='hidden-text'>b</h3>";
-  document.getElementById("box6").innerHTML = "<h3 class='hidden-text'>b</h3>";
-  document.getElementById("box7").innerHTML = "<h3 class='hidden-text'>b</h3>";
-  document.getElementById("box8").innerHTML = "<h3 class='hidden-text'>b</h3>";
+//Resets the board to be blank by looping through each box's ID and writing each h3 to have the hidden-text class. b is used to indicate a "blank" box on the board, and is checked against later
+function clearBoard() {
+  var boxes = document.querySelectorAll(".box");
+  for (i = 0; i < boxes.length; i++) {
+    document.getElementById("box" + i).innerHTML = "<h3 class='hidden-text'>b</h3>";
+  };
 };
+
 
 //______PLAYER TURN SWITCH AND CLEARING PLAYERS____________________
 
