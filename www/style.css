@@ -1,4 +1,4 @@
-
+/*GENERAL STYLES*/
 
 html {
   height: 100%;
@@ -15,12 +15,20 @@ body {
   font-family: 'Love Ya Like A Sister', cursive;
 }
 
+/*HEADER STYLES*/
+
 h1 {
   text-align: center;
   font-size: 5em;
   margin: 0px auto;
   padding: 20px;
   font-family: 'Cabin Sketch', cursive;
+}
+
+@media (max-width: 950px) {
+  h1 {
+    font-size: 15vw;
+  }
 }
 
 h2 {
@@ -34,9 +42,29 @@ h2.subtitle {
   margin-top: -20px;
 }
 
+@media (max-width: 950px) {
+  h2.subtitle {
+    font-size: 5vw;
+  }
+}
+
 h3 {
 font-size: 5em;
 margin: 0px auto;
+}
+
+@media (max-width: 950px) {
+  h3 {
+  font-size: 4em;
+  }
+}
+
+h4 {
+  text-align: center;
+  font-size: 2em;
+  margin: 0px auto;
+  padding: 20px;
+  font-family: 'Cabin Sketch', cursive;
 }
 
 h5 {
@@ -44,6 +72,17 @@ h5 {
   font-size: 1.75em;
   text-align: center;
   margin: 10px auto;
+}
+
+h5.replay {
+  font-size: 1.55em;
+
+}
+
+@media (max-width: 950px) {
+  h5 {
+    font-size: 1.25em;
+  }
 }
 
 h6 {
@@ -54,28 +93,39 @@ h6 {
   display: none;
 }
 
-div.player {
-  margin: 50px auto;
-}
 
-div.player.active {
-  color: #FFA07A;
-}
-
-.minor {
-  font-size: 1em;
-}
-
+/*SMALL TEXT STYLES*/
 p {
   font-family: 'Short Stack', cursive;
   font-size: 1.15em;
   text-align: center;
 }
 
-div.instructions {
-  padding-top: 20px;
+@media (max-width: 950px) {
+  p {
+    font-size: 1em;
+  }
 }
 
+.minor {
+  font-size: 1em;
+}
+
+@media (max-width: 950px) {
+  .minor {
+  display: none;
+  }
+}
+
+a {
+  color: white;
+}
+
+a:hover {
+  color: #FFA07A;
+}
+
+/*PAGE LAYOUT STYLES*/
 .flex-container {
   display: flex;
   flex-direction: row;
@@ -85,11 +135,61 @@ div.instructions {
   margin: auto 20px;
 }
 
+@media (max-width: 950px) {
+  .flex-container {
+    flex-direction: column;
+  }
+}
+
 .flex-column {
   width: 30%;
   padding: 10px;
   margin: 10px;
 }
+
+@media (max-width: 950px) {
+  .flex-column {
+    width: 80%;
+    margin-top: 0px;
+  }
+}
+
+@media (max-width: 410px) {
+  .flex-column {
+    width: 95%;
+  }
+}
+
+
+/*INSTURCTION STYLES*/
+div.player {
+  margin: 50px auto;
+}
+
+@media (max-width: 950px) {
+  div.player {
+    margin: 0px auto;
+    display: inline;
+  }
+}
+
+div.player.active {
+  color: #FFA07A;
+}
+
+
+div.instructions {
+  padding-top: 20px;
+}
+
+@media (max-width: 950px) {
+  div.instructions {
+    padding-top: 0px;
+  }
+}
+
+
+/*GAME PLAY STYLES*/
 
 .hidden-text {
   display: none;
@@ -118,6 +218,22 @@ div.instructions {
   height: 300px;
   align-items: center;
   margin: 0 auto;
+  position: relative;
+  cursor: default;
+}
+
+.board.clicky {
+}
+
+@media (max-width: 410px) {
+  .board {
+    margin: 0px;
+    padding: 0px;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 table {
@@ -126,6 +242,14 @@ table {
   margin-top: 35px;
   border-spacing: 0px;
   border-collapse: collapse;
+}
+
+@media (max-width: 410px) {
+  table {
+    margin: 0px;
+    padding: 0px;
+    width: auto;
+  }
 }
 
 tr {
@@ -144,30 +268,99 @@ td {
   text-align: center;
 }
 
-.no-top {
-  border-top-style: none;
+.box.clicky:hover {
+  background-color: rgb(255,160,122);
+  cursor: pointer;
 }
 
-.no-bottom {
-  border-bottom-style: none;
+@media (max-width: 410px) {
+  .box {
+    width: 75px;
+    height: 75px;
+  }
 }
 
-.no-right {
-  border-right-style: none;
-}
+  /*make table appear like tic-tac-toe board*/
+    .no-top {
+      border-top-style: none;
+    }
 
-.no-left {
-  border-left-style: none;
-}
+    .no-bottom {
+      border-bottom-style: none;
+    }
+
+    .no-right {
+      border-right-style: none;
+    }
+
+    .no-left {
+      border-left-style: none;
+    }
 
 .clear {
   display: none;
 }
 
+.winner {
+  height: 80px;
+  width: 300px;
+  border-width: 5px;
+  border-color: #FFA07A;
+  border-style: solid;
+  color: #FFA07A;
+  background-color: #0a0b0d;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 100px;
+  transform: rotate(-7deg);
+}
+
+@media (max-width: 950px) {
+  .winner {
+    width: 275px;
+  }
+}
+
+
+.replay {
+  height: 50px;
+  width: 175px;
+  border-width: 5px;
+  border-color: white;
+  border-style: solid;
+  color: white;
+  background-color: #0a0b0d;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 170px;
+  transform: rotate(7deg);
+}
+
+@media (max-width: 950px) {
+  .replay {
+    width: 175px;
+  }
+}
+
+
+
+/*FOOTER STYLES*/
 footer {
   font-size: .65em;
   position: fixed;
   bottom: 0px;
   width: 100%;
   text-align: center;
+}
+
+@media (max-width: 950px) {
+  footer {
+    position: relative;
+  }
 }

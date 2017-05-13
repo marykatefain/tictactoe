@@ -1,253 +1,327 @@
+/**
+ *
+ * @licstart  The following is the entire license notice for the
+ *  JavaScript code in this page.
+ *
+ * Copyright (C) 2017  Mary Kate Fain
+ *
+ *
+ * The JavaScript code in this page is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU
+ * General Public License (GNU GPL) as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option)
+ * any later version.  The code is distributed WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+ *
+ * As additional permission under GNU GPL version 3 section 7, you
+ * may distribute non-source (e.g., minimized or compacted) forms of
+ * that code without the copy of the GNU GPL normally required by
+ * section 4, provided you include this license notice and a URL
+ * through which recipients can access the Corresponding Source.
+ *
+ * @licend  The above is the entire license notice
+ * for the JavaScript code in this page.
+ *
+ */
 
 /* IF YOU HAVE TIME: MAKE PLAYER NAMES:
 var player1 = prompt("Who is Player 1?");
 var player2 = prompt("Who is Player 2?");
 */
 
-//Resets the board to be blank by looping through each box's ID and writing each h3 to have the hidden-text class. b is used to indicate a "blank" box on the board, and is checked against later
-function clearBoard() {
-  var boxes = document.querySelectorAll(".box");
-  for (i = 0; i < boxes.length; i++) {
-    document.getElementById("box" + i).innerHTML = "<h3 class='hidden-text'>b</h3>";
+
+(function () { //place everything in one anonymous function to avoid globally declared variables, following Best Practices
+
+  var xTurn = "X";
+  var oTurn = "O";
+  var turn = xTurn;
+
+  function changeTurn() {
+      if (turn === xTurn) {
+        turn = oTurn;
+      }
+      else {
+        turn = xTurn;
+      };
+      return turn;
   };
-};
+
+  var boxes = document.querySelectorAll(".box");
 
 
-//______PLAYER TURN SWITCH AND CLEARING PLAYERS____________________
+  //Resets the board to be blank by looping through each box's ID and writing each h3 to have the hidden-text class. b is used to indicate a "blank" box on the board, and is checked against later
+  function clickBoard() {
+    var board = document.querySelector("#board");
+    board.classList.add("clicky");
+  };
 
-function player1Turn() {
-  var player1 = document.querySelector("#player1");
-  player1.classList.toggle("active");
-};
+  function deadBoard() {
+    var board = document.querySelector("#board");
+    board.classList.remove("clicky");
+  };
 
-function player2Turn() {
-  var player1 = document.querySelector("#player2");
-  player1.classList.toggle("active");
-};
-
-function clearPlayer() {
-  var player1 = document.querySelector("#player1");
-  player1.classList.remove("active");
-
-  var player1 = document.querySelector("#player2");
-  player1.classList.remove("active");
-};
-
-
-//_________MAKE X SQUARE ON CLICK_______________________________
-
-//Writes an X
-function writeHTMLX (id){
-  document.getElementById(id).innerHTML = "<h3>X</h3>";
-}
-
-//Necessary to make callback work, gets id attribute
-function myNamedFunctionX() {
-    var id = this.getAttribute("id");
-    writeHTMLX(id);
-    endTurnX();
-    player1Turn();
-    player2Turn();
-    placeO();
-    boardState();
-}
-
-//remove event listeners
-function endClickX(id) {
-  document.getElementById(id).removeEventListener("click", myNamedFunctionX);
-}
-
-function endTurnX(){
-  endClickX("box0");
-  endClickX("box1");
-  endClickX("box2");
-  endClickX("box3");
-  endClickX("box4");
-  endClickX("box5");
-  endClickX("box6");
-  endClickX("box7");
-  endClickX("box8");
-};
+  function clearBoard() {
+    clickBoard();
+    for (i = 0; i < boxes.length; i++) {
+      document.getElementById("box" + i).innerHTML = '<h3 class="hidden-text">b</h3>';
+    };
+    turn = xTurn;
+    return turn;
+  };
 
 
-//Place X in box when one of the divs is clicked, and then call next turn
-function writeX(id) {
-  document.getElementById(id).addEventListener("click", myNamedFunctionX);
-};
+  //______PLAYER TURN SWITCH AND CLEARING PLAYERS____________________
 
-function placeX(){
-  writeX("box0");
-  writeX("box1");
-  writeX("box2");
-  writeX("box3");
-  writeX("box4");
-  writeX("box5");
-  writeX("box6");
-  writeX("box7");
-  writeX("box8");
-};
+  function player1Turn() {
+    var player1 = document.querySelector("#player1");
+    player1.classList.toggle("active");
+  };
 
+  function player2Turn() {
+    var player2 = document.querySelector("#player2");
+    player2.classList.toggle("active");
+  };
 
+  function clearPlayer() {
+    var player1 = document.querySelector("#player1");
+    player1.classList.remove("active");
 
-//_________MAKE O SQUARE ON CLICK_______________________________
+    var player2 = document.querySelector("#player2");
+    player2.classList.remove("active");
+  }
 
-//Writes an O
-function writeHTMLO (id){
-  document.getElementById(id).innerHTML = "<h3>O</h3>";
-}
+  function restart() {
 
-//Necessary to make callback work, gets id attribute
-function myNamedFunctionO() {
-    var id = this.getAttribute("id");
-    writeHTMLO(id);
-    endTurnO();
-    player1Turn();
-    player2Turn();
-    placeX();
-    boardState();
-}
+    clearPlayer();
 
-//remove event listeners
-function endClickO(id) {
-  document.getElementById(id).removeEventListener("click", myNamedFunctionO);
-}
+    var winnerX = document.querySelector("#x-wins");
+    winnerX.classList.add("hidden-text");
 
-function endTurnO(){
-  endClickO("box0");
-  endClickO("box1");
-  endClickO("box2");
-  endClickO("box3");
-  endClickO("box4");
-  endClickO("box5");
-  endClickO("box6");
-  endClickO("box7");
-  endClickO("box8");
-};
+    var winnerO = document.querySelector("#o-wins");
+    winnerO.classList.add("hidden-text");
+
+    var tie = document.querySelector("#tie");
+    tie.classList.add("hidden-text");
+
+    var replay = document.querySelector("#replay");
+    replay.classList.add("hidden-text");
+  };
 
 
-//Place O in box when one of the divs is clicked, and then end turn
-function writeO(id) {
-  document.getElementById(id).addEventListener("click", myNamedFunctionO);
-};
+  //_________PLACE PIECE IN SQUARE ON CLICK_______________________________
 
-function placeO(){
-  writeO("box0");
-  writeO("box1");
-  writeO("box2");
-  writeO("box3");
-  writeO("box4");
-  writeO("box5");
-  writeO("box6");
-  writeO("box7");
-  writeO("box8");
-};
+  //Writes an X
+  function writeHTML (id){
+    document.getElementById(id).innerHTML = "<h3>" + turn + "</h3>";
+  };
 
 
-//_________________BOARD STATE AND WINNING_______________________
+  function clickHandler() {
+      var id = this.getAttribute("id");
+      writeHTML(id);
+      endTurn();
+      player1Turn();
+      player2Turn();
+      boardState();
+      changeTurn();
+      placePiece();
+  };
 
-//Returns the board state as an array based on the letter in each square, and checks against X and O win states after each turn
-function boardState() {
+  //remove event listeners
+  function endClick(id) {
+    document.getElementById(id).removeEventListener("click", clickHandler);
+    document.getElementById(id).classList.remove("clicky");
+  };
 
-  //Pulls inner HTML of each box and puts them into an array
-  var myList = document.querySelectorAll("h3");
+  function endTurn() {
+    for (i = 0; i < boxes.length; i++) {
+      endClick("box" + i);
+    };
+  };
 
-  var square0 = myList[0].innerHTML;
-  var square1 = myList[1].innerHTML;
-  var square2 = myList[2].innerHTML;
-  var square3 = myList[3].innerHTML;
-  var square4 = myList[4].innerHTML;
-  var square5 = myList[5].innerHTML;
-  var square6 = myList[6].innerHTML;
-  var square7 = myList[7].innerHTML;
-  var square8 = myList[8].innerHTML;
 
- var boardPattern =[square0, square1, square2, square3, square4, square5, square6, square7, square8]
+  //Place piece in box when an empty box is clicked, and then call next turn
 
-  console.log(boardPattern);
-  console.log(xWinState1);
+  function activateSquares(id) {
+    var blank = '<h3 class="hidden-text">b</h3>';
+    var squareStatus = document.getElementById(id).innerHTML;
+    if (squareStatus == blank) {
+      document.getElementById(id).addEventListener("click", clickHandler);
+      document.getElementById(id).classList.add("clicky");
+    };
+  };
 
-  //Checks if X board patterns are equal to any X win states, by looping through win state array and skipping blank squares and only comparing X squares
-  function XisEqual(win, board) {
-    for (var i=0; i<9; i++) {
-      if (win[i] == 'b') continue;
-      if (win[i] != board[i]) {
-        return false;
+
+  function placePiece() {
+    for (i = 0; i < boxes.length; i++) {
+      activateSquares("box" + i);
+    };
+  };
+
+
+  //___________X WIN STATES _________________
+
+  var xWinState1 = ["X", "X", "X", "b", "b", "b", "b", "b", "b"];
+  var xWinState2 = ["b", "b", "b", "X", "X", "X", "b", "b", "b"];
+  var xWinState3 = ["b", "b", "b", "b", "b", "b", "X", "X", "X"];
+  var xWinState4 = ["X", "b", "b", "X", "b", "b", "X", "b", "b"];
+  var xWinState5 = ["b", "X", "b", "b", "X", "b", "b", "X", "b"];
+  var xWinState6 = ["b", "b", "X", "b", "b", "X", "b", "b", "X"];
+  var xWinState7 = ["X", "b", "b", "b", "X", "b", "b", "b", "X"];
+  var xWinState8 = ["b", "b", "X", "b", "X", "b", "X", "b", "b"];
+
+  var xWinStates = [xWinState1, xWinState2, xWinState3, xWinState4, xWinState5, xWinState6, xWinState7, xWinState8];
+
+  //______________O WIN STATES ________________
+
+  var oWinState1 = ["O", "O", "O", "b", "b", "b", "b", "b", "b"];
+  var oWinState2 = ["b", "b", "b", "O", "O", "O", "b", "b", "b"];
+  var oWinState3 = ["b", "b", "b", "b", "b", "b", "O", "O", "O"];
+  var oWinState4 = ["O", "b", "b", "O", "b", "b", "O", "b", "b"];
+  var oWinState5 = ["b", "O", "b", "b", "O", "b", "b", "O", "b"];
+  var oWinState6 = ["b", "b", "O", "b", "b", "O", "b", "b", "O"];
+  var oWinState7 = ["O", "b", "b", "b", "O", "b", "b", "b", "O"];
+  var oWinState8 = ["b", "b", "O", "b", "O", "b", "O", "b", "b"];
+
+  var oWinStates = [oWinState1, oWinState2, oWinState3, oWinState4, oWinState5, oWinState6, oWinState7, oWinState8];
+
+
+  //_________________BOARD STATE AND WINNING_______________________
+
+  //Returns the board state as an array based on the letter in each square, and checks against X and O win states after each turn
+  function boardState() {
+
+    //Pulls inner HTML of each box and puts them into an array
+    var myList = document.querySelectorAll("h3");
+
+    var square0 = myList[0].innerHTML;
+    var square1 = myList[1].innerHTML;
+    var square2 = myList[2].innerHTML;
+    var square3 = myList[3].innerHTML;
+    var square4 = myList[4].innerHTML;
+    var square5 = myList[5].innerHTML;
+    var square6 = myList[6].innerHTML;
+    var square7 = myList[7].innerHTML;
+    var square8 = myList[8].innerHTML;
+
+   var boardPattern = [square0, square1, square2, square3, square4, square5, square6, square7, square8]
+
+
+   //toggles winner announcement display, called when win condition is met, and clear Player
+    function replay() {
+       var replayButton = document.querySelector("#replay");
+       replayButton.classList.remove("hidden-text");
+     };
+
+     function player1Wins() {
+       var anouncement = document.querySelector("#x-wins");
+       anouncement.classList.remove("hidden-text");
+       clearPlayer();
+       replay();
+       document.querySelectorAll("box").classList.remove("clicky");
+     };
+
+     function player2Wins() {
+       var anouncement = document.querySelector("#o-wins");
+       anouncement.classList.remove("hidden-text");
+       clearPlayer();
+       replay();
+       document.querySelectorAll("box").classList.remove("clicky");
+     };
+
+    //Checks if X board patterns are equal to any X win states, by looping through win state array and skipping blank squares and only comparing X squares
+    function XisEqual(win, board) {
+      for (var i = 0; i < 9; i++) {
+        if (win[i] == 'b') continue;
+        if (win[i] != board[i]) {
+          return false;
+        };
+      };
+      console.log("X Wins!");
+      player1Wins();
+      deadBoard();
+    };
+
+    function checkWinX() {
+      for (var i = 0; i < xWinStates.length; i++) {
+        XisEqual(xWinStates[i], boardPattern);
       };
     };
-    alert("X Wins!");
-  };
 
-  //Call win check on each X win state
-  XisEqual(xWinState1, boardPattern);
-  XisEqual(xWinState2, boardPattern);
-  XisEqual(xWinState3, boardPattern);
-  XisEqual(xWinState4, boardPattern);
-  XisEqual(xWinState5, boardPattern);
-  XisEqual(xWinState6, boardPattern);
-  XisEqual(xWinState7, boardPattern);
-  XisEqual(xWinState8, boardPattern);
+    checkWinX();
 
-//Checks if O board patterns are equal to any O win states, by looping through win state array and skipping blank squares and only comparing O squares
-function OisEqual(win, board) {
-  for (var i=0; i<9; i++) {
-    if (win[i] == 'b') continue;
-    if (win[i] != board[i]) {
-      return false;
+    //Checks if O board patterns are equal to any O win states, by looping through win state array and skipping blank squares and only comparing O squares
+    function OisEqual(win, board) {
+      for (var i = 0; i < 9; i++) {
+        if (win[i] == 'b') continue;
+        if (win[i] != board[i]) {
+          return false;
+        };
+      };
+      console.log("O Wins!");
+      player2Wins();
+      deadBoard();
+    };
+
+
+  function checkWinO() {
+    for (var i = 0; i < oWinStates.length; i++) {
+      OisEqual(oWinStates[i], boardPattern);
     };
   };
-  alert("O Wins!");
-};
 
-//Call win check on each O win state
-  OisEqual(oWinState1, boardPattern);
-  OisEqual(oWinState2, boardPattern);
-  OisEqual(oWinState3, boardPattern);
-  OisEqual(oWinState4, boardPattern);
-  OisEqual(oWinState5, boardPattern);
-  OisEqual(oWinState6, boardPattern);
-  OisEqual(oWinState7, boardPattern);
-  OisEqual(oWinState8, boardPattern);
+  checkWinO();
 
-}; //End boardState()
+  // Anounce game tie
+  function isEmpty(id) {
+    var blank = '<h3 class="hidden-text">b</h3>';
+    var squareStatus = document.getElementById(id).innerHTML;
 
+    if (squareStatus == blank) {
+      return true;
+    } else {
+      return false
+    }
+  };
 
-//____X WIN STATES ________
+  function CheckIfTie() {
+    var anouncement = document.querySelector("#tie");
+    for (i = 0; i < boxes.length; i++) {
+      if (isEmpty("box" + i)) {
+        return false
+      }
+    };
+    anouncement.classList.remove("hidden-text");
+    replay();
+    return true;
+  };
 
-var xWinStates = [xWinState1, xWinState2, xWinState3, xWinState4, xWinState5, xWinState6, xWinState7, xWinState8];
+  CheckIfTie();
 
-var xWinState1 = ["X", "X", "X", "b", "b", "b", "b", "b", "b"];
-var xWinState2 = ["b", "b", "b", "X", "X", "X", "b", "b", "b"];
-var xWinState3 = ["b", "b", "b", "b", "b", "b", "X", "X", "X"];
-var xWinState4 = ["X", "b", "b", "X", "b", "b", "X", "b", "b"];
-var xWinState5 = ["b", "X", "b", "b", "X", "b", "b", "X", "b"];
-var xWinState6 = ["b", "b", "X", "b", "b", "X", "b", "b", "X"];
-var xWinState7 = ["X", "b", "b", "b", "X", "b", "b", "b", "X"];
-var xWinState8 = ["b", "b", "X", "b", "X", "b", "X", "b", "b"];
-
-//____O WIN STATES ________
-
-var oWinStates = [oWinState1, oWinState2, oWinState3, oWinState4, oWinState5, oWinState6, oWinState7, oWinState8];
+  }; //End boardState()
 
 
-var oWinState1 = ["O", "O", "O", "b", "b", "b", "b", "b", "b"];
-var oWinState2 = ["b", "b", "b", "O", "O", "O", "b", "b", "b"];
-var oWinState3 = ["b", "b", "b", "b", "b", "b", "O", "O", "O"];
-var oWinState4 = ["O", "b", "b", "O", "b", "b", "O", "b", "b"];
-var oWinState5 = ["b", "O", "b", "b", "O", "b", "b", "O", "b"];
-var oWinState6 = ["b", "b", "O", "b", "b", "O", "b", "b", "O"];
-var oWinState7 = ["O", "b", "b", "b", "O", "b", "b", "b", "O"];
-var oWinState8 = ["b", "b", "O", "b", "O", "b", "O", "b", "b"];
 
+  //_____________GAME PLAY_______________________
+  function play(){
 
-//_____________GAME PLAY_______________________
-function play(){
+    //Clear the board, any active player turn, and start player turn toggle
+    clearBoard();
+    restart();
+    player1Turn();
 
-  //Clear the board, any active player turn, and start player turn toggle
-  clearBoard();
-  clearPlayer();
-  player1Turn();
+    //Players alternatively click, event listeners turn on and off allow placement of X or O
+    //board state checked after each turn for winner
+    placePiece();
+  };
 
-  //Players alternatively click, event listeners turn on and off allow placement of X or O
-  //board state checked after each turn for winner
-  placeX();
-};
+  document.getElementById("play").addEventListener("click", function() {
+    play();
+  });
+
+  document.getElementById("replay").addEventListener("click", function() {
+    play();
+  });
+
+})(); //end global function

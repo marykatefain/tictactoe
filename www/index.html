@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head role="contentinfo">
   <title>Tic-Tac-Toe</title>
 
   <!-- Meta -->
@@ -8,10 +8,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <meta name="theme-color" content="#3FC3B6">
   <meta name="msapplication-config" content="/browserconfig.xml">
-  <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
   <!-- Open Graph protocol -->
-  <meta property="og:title" content="UTic-Tac-Toe">
+  <meta property="og:title" content="Tic-Tac-Toe">
   <meta property="og:type" content="website">
   <meta property="og:url" content="">
   <meta property="og:image" content="">
@@ -27,110 +27,116 @@
 </head>
 
 <body>
-  <h1>Tic-Tac-Toe</h1>
+  <h1 role="banner">Tic-Tac-Toe</h1>
 
   <h2 class="subtitle">The classic two-player game.</h2>
 
-  <div class="flex-container">
+  <div class="flex-container" role="main">
 
     <div class="flex-column">
       <div class="instructions">
-        <p class="instructions">Each player alternates turns placing thier pieces on the board.</p>
+        <p class="instructions">Each player alternates turns placing their pieces on the board.</p>
         <p class="instructions">First player to reach three-in-a-row across, down, or diagonally wins!</p>
       </div>
 
 
-      <div class="button" id="play" onclick="play();">
-        <h2>Play!</h3>
+      <div class="button" id="play">
+        <h2>Play!</h2>
         </div>
       </div>
 
       <div class="flex-column">
-        <div class="board">
+        <div class="board" id="board">
+
           <table>
             <tr>
-
               <td class="no-top no-left">
                 <div class="box" id="box0">
                   <h3>-</h3>
                 </div>
               </td>
-
               <td class="no-top">
                 <div class="box" id="box1">
                   <h3>-</h3>
                 </div>
               </td>
-
               <td class="no-top no-right">
                 <div class="box" id="box2">
                   <h3>-</h3>
                 </div>
               </td>
-
             </tr>
 
             <tr>
-
               <td class="no-left">
                 <div class="box" id="box3">
                   <h3>-</h3>
                 </div>
               </td>
-
               <td>
                 <div class="box" id="box4">
                   <h3>-</h3>
                 </div>
               </td>
-
               <td class="no-right">
                 <div class="box" id="box5">
                   <h3>-</h3>
                 </div>
               </td>
-
             </tr>
 
             <tr>
-
               <td class="no-left no-bottom">
                 <div class="box" id="box6">
                   <h3>-</h3>
                 </div>
               </td>
-
               <td class="no-bottom">
                 <div class="box" id="box7">
                   <h3>-</h3>
                 </div>
               </td>
-
               <td class="no-right no-bottom">
                 <div class="box" id="box8">
                   <h3>-</h3>
                 </div>
               </td>
-
             </tr>
 
           </table>
+
+          <span class="winner-announcements">
+            <div class="winner hidden-text" id="tie">
+              <h4>It's a tie!</h4>
+            </div>
+
+            <div class="winner hidden-text" id="x-wins">
+              <h4>Player 1 wins!</h4>
+            </div>
+
+            <div class="winner hidden-text" id="o-wins">
+              <h4>Player 2 wins!</h4>
+            </div>
+
+            <div class="replay button hidden-text" id="replay"><h5>replay</h5></div>
+
+          </span>
+
         </div>
       </div>
 
       <div class="flex-column">
 
         <div class="player" id="player1">
-          <h5>Player 1 (Xs):</h5>
+          <h5>Player 1 (Xs)</h5>
           <h6>Name</h6>
           <p class="minor">Click the board to leave your piece</p>
         </div>
 
         <div class="player" id="player2">
-          <h5>Player 2 (Os):</h5>
+          <h5>Player 2 (Os)</h5>
           <h6>Name</h6>
           <p class="minor">Click the board to leave your piece</p>
-
         </div>
 
       </div>
@@ -139,7 +145,7 @@
 
     <footer>
       <div class="footer-text">
-        <p>This website was made for P'unk Ave with love, by Mary Kate Fain. Licensed under GNU GPL 3.0<p>
+        <p>This website was made for P'unk Ave with love, by Mary Kate Fain. Licensed under <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank">GNU GPL 3.0</a>. View on <a href="https://github.com/punkave/tic-tac-toe-mary-kate.git" target="_blank">GitHub</a>.<p>
         </div>
     </footer>
 
