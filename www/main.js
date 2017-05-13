@@ -17,60 +17,6 @@ function clearBoard(){
   document.getElementById("box8").innerHTML = "<h3 class='hidden-text'>b</h3>";
 };
 
-//_________MAKE X SQUARE_______________________________
-
-//Writes an X
-function writeHTMLX (id){
-  document.getElementById(id).innerHTML = "<h3>X</h3>";
-}
-
-//Necessary to make callback work, gets id attribute
-function myNamedFunctionX() {
-    var id = this.getAttribute("id");
-    writeHTMLX(id);
-    endTurnX();
-    player1Turn();
-    player2Turn();
-    placeO();
-    boardState();
-}
-
-//step 3: remove event listeners
-function endClickX(id) {
-  document.getElementById(id).removeEventListener("click", myNamedFunctionX);
-}
-
-function endTurnX(){
-  endClickX("box0");
-  endClickX("box1");
-  endClickX("box2");
-  endClickX("box3");
-  endClickX("box4");
-  endClickX("box5");
-  endClickX("box6");
-  endClickX("box7");
-  endClickX("box8");
-};
-
-
-//step 2: Place X in box when one of the divs is clicked, and then call next turn
-
-function writeX(id) {
-  document.getElementById(id).addEventListener("click", myNamedFunctionX);
-};
-
-function placeX(){
-  writeX("box0");
-  writeX("box1");
-  writeX("box2");
-  writeX("box3");
-  writeX("box4");
-  writeX("box5");
-  writeX("box6");
-  writeX("box7");
-  writeX("box8");
-};
-
 //_________PLAYER TURN SWITCH____________________________
 
 function player1Turn() {
@@ -91,6 +37,63 @@ function clearPlayer() {
   player1.classList.remove("active");
 };
 
+
+//_________MAKE X SQUARE_______________________________
+
+//Writes an X
+function writeHTMLX (id){
+  document.getElementById(id).innerHTML = "<h3>X</h3>";
+}
+
+//Necessary to make callback work, gets id attribute
+function myNamedFunctionX() {
+    var id = this.getAttribute("id");
+    writeHTMLX(id);
+    endTurnX();
+    player1Turn();
+    player2Turn();
+    placeO();
+    boardState();
+}
+
+//remove event listeners
+function endClickX(id) {
+  document.getElementById(id).removeEventListener("click", myNamedFunctionX);
+}
+
+function endTurnX(){
+  endClickX("box0");
+  endClickX("box1");
+  endClickX("box2");
+  endClickX("box3");
+  endClickX("box4");
+  endClickX("box5");
+  endClickX("box6");
+  endClickX("box7");
+  endClickX("box8");
+};
+
+
+//sPlace X in box when one of the divs is clicked, and then call next turn
+
+function writeX(id) {
+  document.getElementById(id).addEventListener("click", myNamedFunctionX);
+};
+
+function placeX(){
+  writeX("box0");
+  writeX("box1");
+  writeX("box2");
+  writeX("box3");
+  writeX("box4");
+  writeX("box5");
+  writeX("box6");
+  writeX("box7");
+  writeX("box8");
+};
+
+
+
 //_________MAKE X SQUARE_______________________________
 
 //Writes an O
@@ -109,7 +112,7 @@ function myNamedFunctionO() {
     boardState();
 }
 
-//step 3: remove event listeners
+//remove event listeners
 function endClickO(id) {
   document.getElementById(id).removeEventListener("click", myNamedFunctionO);
 }
@@ -127,7 +130,7 @@ function endTurnO(){
 };
 
 
-//step 3: Place O in box when one of the divs is clicked, and then end turn
+//Place O in box when one of the divs is clicked, and then end turn
 
 function writeO(id) {
   document.getElementById(id).addEventListener("click", myNamedFunctionO);
@@ -146,10 +149,6 @@ function placeO(){
 };
 
 
-
-
-
-
 //_____________GAME PLAY_______________________
 function play(){
 
@@ -161,7 +160,6 @@ function play(){
   //step 2:
   //Players alternatively click, event listeners turn on and off
   //board state checked after each turn
-
   placeX();
 
   //Compare win states to board states
